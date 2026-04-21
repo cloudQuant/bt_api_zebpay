@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "bt_api_zebpay"
+version = "0.1.0"
+description = "Zebpay exchange plugin for bt_api"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["bt_api_base"]
+
+[project.entry-points."bt_api.plugins"]
+zebpay = "bt_api_zebpay.plugin:register_plugin"
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/bt_api_zebpay"]
