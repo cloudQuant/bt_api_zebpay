@@ -1,0 +1,35 @@
+site_name: "ZEBPAY Documentation"
+site_description: "ZEBPAY plugin for bt_api"
+site_author: cloudQuant
+site_url: https://bt-api-zebpay.readthedocs.io/
+
+repo_name: cloudQuant/bt_api_zebpay
+repo_url: https://github.com/cloudQuant/bt_api_zebpay
+
+theme:
+  name: material
+  language: en
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+nav:
+  - Home: index.md
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - admonition
+  - tables
