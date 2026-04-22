@@ -13,9 +13,9 @@ def register_plugin(
 ) -> PluginInfo:
     register_zebpay(registry)
     return PluginInfo(
-        name="bt_api_zebpay",
+        name='bt_api_zebpay',
         version=__version__,
-        core_requires=">=0.15,<1.0",
-        supported_exchanges=("ZEBPAY___SPOT",),
-        supported_asset_types=("SPOT",),
+        core_requires='>=0.15,<1.0',
+        supported_exchanges=('ZEBPAY___SPOT',),
+        supported_asset_types=('SPOT',),
     )

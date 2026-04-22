@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "bt_api_zebpay"
-version = "0.1.0"
+version = "0.15.1"
 description = "Zebpay exchange plugin for bt_api framework - Indian cryptocurrency exchange"
 readme = "README.md"
 requires-python = ">=3.9"
@@ -69,45 +69,25 @@ line-length = 100
 target-version = "py39"
 
 [tool.ruff.lint]
-select = [
-    "E",
-    "F",
-    "W",
-    "I",
-    "UP",
-    "B",
-    "C4",
-    "T20",
-    "UP",
-    "YTT",
-    "ANN",
-    "ASYNC",
-    "BLE",
-    "COM",
-    "DTZ",
-    "EM",
-    "ISC",
-    "ICN",
-    "G",
-    "PIE",
-    "T10",
-    "DJ",
-    "E501",
-    "E711",
-    "E713",
-    "E714",
-    "E721",
-    "E722",
-    "E731",
-    "W291",
-    "W292",
-    "W293",
-    "W504",
-]
+select = ["I", "UP", "E", "F", "W"]
 ignore = [
     "E501",
     "E731",
+    "TC002",
+    "TRY003",
+    "F403",
+    "F841",
+    "Q000",
+    "Q003",
 ]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
+line-ending = "auto"
 
 [tool.mypy]
 python_version = "3.9"
