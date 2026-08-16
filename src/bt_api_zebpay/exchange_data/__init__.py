@@ -1,3 +1,4 @@
+"""Module-level docstring."""
 from __future__ import annotations
 
 from bt_api_base.containers.exchanges.exchange_data import ExchangeData
@@ -20,7 +21,9 @@ _FALLBACK_REST_PATHS = {
 
 
 class ZebpayExchangeData(ExchangeData):
+    """Class ZebpayExchangeData"""
     def __init__(self) -> None:
+        """__init__ method"""
         super().__init__()
         self.exchange_name = "ZEBPAY___SPOT"
         self.rest_url = "https://sapi.zebpay.com"
@@ -43,23 +46,28 @@ class ZebpayExchangeData(ExchangeData):
 
     @staticmethod
     def get_symbol(symbol):
+        """get_symbol method"""
         s = symbol.strip().replace("/", "-").replace("_", "-").upper()
         return s
 
     @staticmethod
     def get_reverse_symbol(symbol):
+        """get_reverse_symbol method"""
         return symbol.strip().replace("/", "-").replace("_", "-").upper()
 
     def get_period(self, period: str) -> str:
+        """get_period method"""
         return self.kline_periods.get(period, period)
 
     def get_reverse_period(self, period: str) -> str:
+        """get_reverse_period method"""
         for k, v in self.kline_periods.items():
             if v == period:
                 return k
         return period
 
     def get_rest_path(self, key: str, **kwargs) -> str:
+        """get_rest_path method"""
         path = self.rest_paths.get(key, "")
         if not path:
             raise ValueError(f"[{self.exchange_name}] REST path not found: {key}")
@@ -69,6 +77,8 @@ class ZebpayExchangeData(ExchangeData):
 
 
 class ZebpayExchangeDataSpot(ZebpayExchangeData):
+    """Class ZebpayExchangeDataSpot"""
     def __init__(self) -> None:
+        """__init__ method"""
         super().__init__()
         self.asset_type = "SPOT"

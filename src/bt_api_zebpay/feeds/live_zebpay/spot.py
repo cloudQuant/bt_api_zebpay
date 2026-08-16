@@ -1,3 +1,4 @@
+"""Module-level docstring."""
 from __future__ import annotations
 
 from typing import Any
@@ -6,21 +7,26 @@ from bt_api_zebpay.feeds.live_zebpay.request_base import ZebpayRequestData
 
 
 class ZebpayRequestDataSpot(ZebpayRequestData):
+    """Class ZebpayRequestDataSpot"""
     def get_server_time(self, extra_data: Any = None, **kwargs: Any):
+        """get_server_time method"""
         path, params, extra = self._get_server_time(extra_data, **kwargs)
         return self.request(path, params, extra_data=extra)
 
     def async_get_server_time(self, extra_data: Any = None, **kwargs: Any):
+        """async_get_server_time method"""
         path, params, extra = self._get_server_time(extra_data, **kwargs)
         self.submit(
             self.async_request(path, params, extra_data=extra), callback=self.async_callback
         )
 
     def get_tick(self, symbol: Any, extra_data: Any = None, **kwargs: Any):
+        """get_tick method"""
         path, params, extra = self._get_tick(symbol, extra_data, **kwargs)
         return self.request(path, params, extra_data=extra)
 
     def async_get_tick(self, symbol: Any, extra_data: Any = None, **kwargs: Any):
+        """async_get_tick method"""
         path, params, extra = self._get_tick(symbol, extra_data, **kwargs)
         self.submit(
             self.async_request(path, params, extra_data=extra), callback=self.async_callback
@@ -29,13 +35,16 @@ class ZebpayRequestDataSpot(ZebpayRequestData):
     get_ticker = get_tick
 
     def async_get_ticker(self, symbol: Any, extra_data: Any = None, **kwargs: Any):
+        """async_get_ticker method"""
         self.async_get_tick(symbol, extra_data, **kwargs)
 
     def get_depth(self, symbol: Any, count: int = 20, extra_data: Any = None, **kwargs: Any):
+        """get_depth method"""
         path, params, extra = self._get_depth(symbol, count, extra_data, **kwargs)
         return self.request(path, params, extra_data=extra)
 
     def async_get_depth(self, symbol: Any, count: int = 20, extra_data: Any = None, **kwargs: Any):
+        """async_get_depth method"""
         path, params, extra = self._get_depth(symbol, count, extra_data, **kwargs)
         self.submit(
             self.async_request(path, params, extra_data=extra), callback=self.async_callback
@@ -44,42 +53,50 @@ class ZebpayRequestDataSpot(ZebpayRequestData):
     def get_kline(
         self, symbol: Any, period: Any, count: int = 20, extra_data: Any = None, **kwargs: Any
     ):
+        """get_kline method"""
         path, params, extra = self._get_kline(symbol, period, count, extra_data, **kwargs)
         return self.request(path, params, extra_data=extra)
 
     def async_get_kline(
         self, symbol: Any, period: Any, count: int = 20, extra_data: Any = None, **kwargs: Any
     ):
+        """async_get_kline method"""
         path, params, extra = self._get_kline(symbol, period, count, extra_data, **kwargs)
         self.submit(
             self.async_request(path, params, extra_data=extra), callback=self.async_callback
         )
 
     def get_exchange_info(self, extra_data: Any = None, **kwargs: Any):
+        """get_exchange_info method"""
         path, params, extra = self._get_exchange_info(extra_data, **kwargs)
         return self.request(path, params, extra_data=extra)
 
     def async_get_exchange_info(self, extra_data: Any = None, **kwargs: Any):
+        """async_get_exchange_info method"""
         path, params, extra = self._get_exchange_info(extra_data, **kwargs)
         self.submit(
             self.async_request(path, params, extra_data=extra), callback=self.async_callback
         )
 
     def get_balance(self, symbol: Any = None, extra_data: Any = None, **kwargs: Any):
+        """get_balance method"""
         path, params, extra = self._get_balance(extra_data, **kwargs)
         return self.request(path, params, extra_data=extra)
 
     def async_get_balance(self, symbol: Any = None, extra_data: Any = None, **kwargs: Any):
+        """async_get_balance method"""
         path, params, extra = self._get_balance(extra_data, **kwargs)
         self.submit(
             self.async_request(path, params, extra_data=extra), callback=self.async_callback
         )
 
     def get_account(self, symbol: Any = None, extra_data: Any = None, **kwargs: Any):
+        """get_account method"""
         path, params, extra = self._get_account(extra_data, **kwargs)
         return self.request(path, params, extra_data=extra)
 
     def async_get_account(self, symbol: Any = None, extra_data: Any = None, **kwargs: Any):
+        """async_get_account method"""
         path, params, extra = self._get_account(extra_data, **kwargs)
         self.submit(
             self.async_request(path, params, extra_data=extra), callback=self.async_callback
@@ -97,6 +114,7 @@ class ZebpayRequestDataSpot(ZebpayRequestData):
         extra_data: Any = None,
         **kwargs: Any,
     ):
+        """make_order method"""
         path, params, extra = self._make_order(
             symbol,
             volume,
@@ -122,6 +140,7 @@ class ZebpayRequestDataSpot(ZebpayRequestData):
         extra_data: Any = None,
         **kwargs: Any,
     ):
+        """async_make_order method"""
         path, params, extra = self._make_order(
             symbol,
             volume,
@@ -140,24 +159,28 @@ class ZebpayRequestDataSpot(ZebpayRequestData):
     def cancel_order(
         self, symbol: Any, order_id: Any = None, extra_data: Any = None, **kwargs: Any
     ):
+        """cancel_order method"""
         path, params, extra = self._cancel_order(symbol, order_id, extra_data, **kwargs)
         return self.request(path, params, extra_data=extra)
 
     def async_cancel_order(
         self, symbol: Any, order_id: Any = None, extra_data: Any = None, **kwargs: Any
     ):
+        """async_cancel_order method"""
         path, params, extra = self._cancel_order(symbol, order_id, extra_data, **kwargs)
         self.submit(
             self.async_request(path, params, extra_data=extra), callback=self.async_callback
         )
 
     def query_order(self, symbol: Any, order_id: Any = None, extra_data: Any = None, **kwargs: Any):
+        """query_order method"""
         path, params, extra = self._query_order(symbol, order_id, extra_data, **kwargs)
         return self.request(path, params, extra_data=extra)
 
     def async_query_order(
         self, symbol: Any, order_id: Any = None, extra_data: Any = None, **kwargs: Any
     ):
+        """async_query_order method"""
         path, params, extra = self._query_order(symbol, order_id, extra_data, **kwargs)
         self.submit(
             self.async_request(path, params, extra_data=extra), callback=self.async_callback

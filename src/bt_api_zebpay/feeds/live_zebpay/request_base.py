@@ -1,3 +1,4 @@
+"""Module documentation"""
 from __future__ import annotations
 
 import hashlib
@@ -14,6 +15,7 @@ from bt_api_zebpay.exchange_data import ZebpayExchangeDataSpot
 
 
 class ZebpayRequestData(Feed):
+    """Class ZebpayRequestData"""
     @classmethod
     def _capabilities(cls) -> set[Capability]:
         return {
@@ -30,6 +32,7 @@ class ZebpayRequestData(Feed):
         }
 
     def __init__(self, data_queue: Any = None, **kwargs: Any) -> None:
+        """__init__ method"""
         super().__init__(data_queue, **kwargs)
         self.data_queue = data_queue
         self.exchange_name = kwargs.get("exchange_name", "ZEBPAY___SPOT")
@@ -73,6 +76,7 @@ class ZebpayRequestData(Feed):
         extra_data: Any = None,
         timeout: int = 10,
     ) -> RequestData:
+        """request method"""
         method = path.split()[0] if " " in path else "GET"
         endpoint = path.split()[1] if " " in path else path
         url = self._params.rest_url + endpoint
@@ -95,6 +99,7 @@ class ZebpayRequestData(Feed):
         extra_data: Any = None,
         timeout: int = 10,
     ) -> RequestData:
+        """async_request method"""
         method = path.split()[0] if " " in path else "GET"
         endpoint = path.split()[1] if " " in path else path
         url = self._params.rest_url + endpoint
@@ -110,10 +115,12 @@ class ZebpayRequestData(Feed):
         return RequestData(response, extra_data)
 
     def push_data_to_queue(self, data: Any) -> None:
+        """push_data_to_queue method"""
         if self.data_queue is not None:
             self.data_queue.put(data)
 
     def async_callback(self, future: Any) -> None:
+        """async_callback method"""
         try:
             result = future.result()
             self.push_data_to_queue(result)
@@ -121,12 +128,15 @@ class ZebpayRequestData(Feed):
             self.logger.warning("async_callback::%s", exc)
 
     def connect(self) -> None:
+        """connect method"""
         pass
 
     def disconnect(self) -> None:
+        """disconnect method"""
         super().disconnect()
 
     def is_connected(self) -> bool:
+        """is_connected method"""
         return True
 
     @staticmethod

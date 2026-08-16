@@ -1,3 +1,4 @@
+"""Module documentation"""
 from __future__ import annotations
 
 from typing import Any
@@ -6,8 +7,10 @@ from bt_api_base.error import ErrorCategory, ErrorTranslator, UnifiedError, Unif
 
 
 class ZebpayErrorTranslator(ErrorTranslator):
+    """Class ZebpayErrorTranslator"""
     @classmethod
     def translate(cls, raw_error: dict[str, Any], venue: str) -> UnifiedError | None:
+        """translate method"""
         code_value = raw_error.get("code", 0)
         msg = str(raw_error.get("message", raw_error.get("error", "")))
         lower = msg.lower()

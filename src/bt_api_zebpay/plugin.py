@@ -1,3 +1,4 @@
+"""Module-level docstring."""
 from __future__ import annotations
 
 from bt_api_base.gateway.registrar import GatewayRuntimeRegistrar
@@ -11,6 +12,7 @@ from bt_api_zebpay.registry_registration import register_zebpay
 def register_plugin(
     registry: type[ExchangeRegistry], runtime_factory: type[GatewayRuntimeRegistrar]
 ) -> PluginInfo:
+    """register_plugin function"""
     register_zebpay(registry)
     return PluginInfo(
         name="bt_api_zebpay",
