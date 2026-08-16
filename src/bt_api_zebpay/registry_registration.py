@@ -10,6 +10,6 @@ from bt_api_zebpay.feeds.live_zebpay.spot import ZebpayRequestDataSpot
 
 def register_zebpay(registry: type[ExchangeRegistry]) -> None:
     """register_zebpay function"""
-    registry.register_feed("ZEBPAY___SPOT", ZebpayRequestDataSpot)
-    registry.register_exchange_data("ZEBPAY___SPOT", ZebpayExchangeDataSpot)
-    registry.register_balance_handler("ZEBPAY___SPOT", _zebpay_balance_handler)
+    registry.register_feed('ZEBPAY___SPOT', ZebpayRequestDataSpot)
+    registry.register_exchange_data('ZEBPAY___SPOT', ZebpayExchangeDataSpot)
+    registry.register_balance_handler('ZEBPAY___SPOT', _zebpay_balance_handler)
